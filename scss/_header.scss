@@ -1,0 +1,162 @@
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: #3DBEFF;
+
+
+
+    .navbar {
+        position: relative;
+        padding: 1.875em 1.5625em;
+
+
+        .nav {
+            background: $white;
+            position: absolute;
+            top: calc(100% + 1.5625em);
+            left: 1.5625em;
+            right: 1.5625em;
+            flex-direction: column;
+            gap: 2.1875em;
+            padding: 2.5em;
+            box-shadow: 0 0.625em 2.5em hsla(0, 0%, 0%, 0.1);
+            transform: scale(0.9);
+            transform-origin: top right;
+            opacity: 0;
+            pointer-events: none;
+            transition: $defaultTransition;
+
+
+
+            &.active {
+                transform: scale(1);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -1em;
+                right: -1.25em;
+                border: 1.25em solid transparent;
+                border-left-color: $white;
+                transform: rotate(45deg);
+                box-shadow: 0 0 0 hsla(0, 0%, 0%, 0.1);
+            }
+
+            button {
+                border: none;
+                font-family: 'Fraunces', serif;
+                background: $yellow;
+                color: $darkerBlue;
+                font-size: 1em;
+                text-transform: uppercase;
+                padding: 1.125em 1.875em;
+                border-radius: 3.125em;
+                cursor: pointer;
+            }
+
+        }
+
+
+        .nav-link {
+            color: $darkGrayBlue;
+        }
+
+
+
+        .nav-toggle-btn {
+            flex-direction: column;
+            width: 1.5em;
+            height: 1.25em;
+            gap: 0.375em;
+
+            .line {
+                background: $white;
+                width: 100%;
+                height: 0.125em;
+                transition: $defaultTransition;
+                transform-origin: 5px 1px;
+            }
+
+            &.active {
+
+                .one {
+                    transform: translateY(4px) rotate(45deg);
+                }
+
+                .two {
+                    display: none;
+                }
+
+                .three {
+                    transform: translateY(-4px) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+
+    @include breakpoint-up(medium) {
+
+        .navbar {
+            .nav {
+                position: static;
+                opacity: 1;
+                transform: scale(1);
+                pointer-events: all;
+                flex-direction: row;
+                background: none;
+                box-shadow: none;
+                padding: 0;
+
+                &::before {
+                    display: none;
+                }
+
+                .btn {
+                    background: $white;
+                    color: $darkerBlue;
+                    transition: $defaultTransition;
+                    font-size: 0.875em;
+
+                    &:hover {
+                        background: hsla(0, 0%, 100%, 0.3);
+                        color: $white;
+                    }
+                }
+
+
+
+            }
+
+            .nav-link {
+                color: $white;
+            }
+
+
+            .nav-toggle-btn {
+                display: none;
+            }
+        }
+    }
+
+
+    @include breakpoint-up(large) {
+        .navbar {
+            padding: 2.1875em 2.5em;
+
+            .logo img {
+                width: 10.625em;
+            }
+
+            .nav {
+                gap: 3.75em;
+            }
+        }
+    }
+}

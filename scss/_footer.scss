@@ -1,0 +1,37 @@
+.footer {
+    background-color: #90D4C5;
+    padding: 4.375em 1.875em;
+
+    &__logo {
+        text-align: center;
+        margin-bottom: 2.5em;
+
+        svg {
+            transform: scale(1.4);
+        }
+    }
+
+    &__nav {
+        gap: 3.125em;
+        margin-bottom: 5.625em;
+
+        a {
+            color: $darkCyanMod;
+            transition: $defaultTransition;
+        }
+    }
+
+    &__social {
+        gap: 1.5625em;
+
+        img {
+            transition: $defaultTransition;
+        }
+    }
+
+    &__nav a:hover,
+    &__social img:hover {
+        color: $white;
+    }
+
+}

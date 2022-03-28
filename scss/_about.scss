@@ -1,0 +1,124 @@
+.about {
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__content {
+        text-align: center;
+        padding: 3.75em 1.5625em;
+        max-width: 34.375em;
+        margin: auto;
+
+        h2 {
+            color: $darkerBlue;
+            font-size: 2em;
+            margin-bottom: 1.875em;
+        }
+
+        p {
+            color: $grayBlue;
+            line-height: 1.7em;
+            margin-bottom: 2em;
+        }
+
+        a {
+            position: relative;
+            color: $darkerBlue;
+            font-family: 'Fraunces', serif;
+            font-size: 1em;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+    }
+
+    &__btn {
+        margin: 3em;
+        position: relative;
+
+        // box-shadow: 10px 5px 5px $red;
+        &::after {
+            content: '';
+            position: absolute;
+            border-radius: 30px;
+            opacity: 0.3;
+            width: 110%;
+            height: 40%;
+            top: 70%;
+            left: -5%;
+            z-index: -1;
+            transition: $defaultTransition;
+        }
+
+        &:hover::after {
+            opacity: 0.8;
+        }
+    }
+
+    .btnOne::after {
+        background-color: $yellow;
+    }
+
+    .btnTwo::after {
+        background-color: $red;
+    }
+
+
+}
+
+@include breakpoint-up(small) {
+    .about {
+        &-img-box {
+            height: 28.125em;
+            overflow: hidden;
+        }
+    }
+
+}
+
+@include breakpoint-up(medium) {
+    .about {
+        grid-template-columns: 1fr 1fr;
+
+        .grid-pos-lg {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .about-img-box {
+            height: auto;
+        }
+
+        &__content {
+            padding: 3.75em;
+            text-align: left;
+
+            a {
+                margin-left: 0.625em;
+            }
+        }
+    }
+}
+
+@include breakpoint-up(large) {
+    .about {
+        &__content {
+            max-width: unset;
+            padding: 9.6875em 8.125em;
+
+            h2 {
+                font-size: 2.5em;
+            }
+
+            p {
+                margin-bottom: 2.5em;
+            }
+        }
+    }
+}
