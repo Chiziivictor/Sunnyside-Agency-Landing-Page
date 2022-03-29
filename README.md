@@ -12,7 +12,7 @@ Built using
 
 ## Author
 
-- Website - (https://www.your-site.com)
+- Website - (https://https://incomparable-sprite-0a1760.netlify.app/)
 - Frontend Mentor - (https://www.frontendmentor.io/profile/chiziivictor)
 - Twitter - (https://www.twitter.com/chiziivictor)
 
